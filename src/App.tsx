@@ -15,15 +15,16 @@ function App() {
 	const deleteRectangleById = (array: any, id: string) => {
 		let copyArray = [...array]
 		let deleteTargets: number[] = [] as number[];
+		console.log(copyArray)
 		copyArray.forEach((item, index) => {
-			if (item["id"] == id) {
+			if (item != null && item["id"] == id) {
 				deleteTargets.push(index)
 			}
 		})
 		deleteTargets.forEach((item, index) => {
 			delete copyArray[item]
 		})
-		return copyArray
+		return copyArray.filter((item) => item != undefined)
 	}
 
 	const newRectangleTemplate = {
